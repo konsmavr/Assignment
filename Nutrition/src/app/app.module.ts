@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -11,13 +12,17 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import { AddButtonComponent } from './add-button/add-button.component';
 import { AnalyzeComponent } from './analyze/analyze.component'; 
+import { HttpClientModule } from '@angular/common/http';
+import { InputFieldComponent } from './input-field/input-field.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchBarComponent,
     AddButtonComponent,
-    AnalyzeComponent
+    AnalyzeComponent,
+    InputFieldComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +33,8 @@ import { AnalyzeComponent } from './analyze/analyze.component';
      ReactiveFormsModule,
      MatIconModule,
      MatInputModule,
+     HttpClientModule,
+     
      
      
 
