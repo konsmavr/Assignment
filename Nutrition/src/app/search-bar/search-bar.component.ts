@@ -16,7 +16,9 @@ export class SearchBarComponent implements OnInit {
   ngOnInit(): void {}
 
   sendText() {
-    this.newSearchTermEvent.emit(this.searchTerm);
-    this.searchTerm = '';
+    if (this.searchTerm !== '') {
+      this.newSearchTermEvent.emit(this.searchTerm);
+      this.searchTerm = '';
+    }
   }
 }

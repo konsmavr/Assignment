@@ -1,5 +1,5 @@
 <app-search-bar (newSearchTermEvent)="addText($event)"></app-search-bar>
 <div class="container">
-  <app-input-field *ngFor="let term of searchTerms"></app-input-field>
+  <app-input-field [item]="item" *ngFor="let item of listItems"></app-input-field>
 </div>
 <app-analyze></app-analyze>
