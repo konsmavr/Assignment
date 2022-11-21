@@ -1,5 +1,18 @@
-<app-search-bar (newSearchTermEvent)="addText($event)"></app-search-bar>
 <div class="container">
-  <app-input-field [item]="item" *ngFor="let item of listItems"></app-input-field>
+  <app-search-bar (newSearchTermEvent)="addText($event)"></app-search-bar>
+
+  <div class="inputs">
+    <app-input-field
+      [item]="item"
+      *ngFor="let item of listItems"
+    ></app-input-field>
+  </div>
+  <button
+    mat-raised-button
+    color="accent"
+    class="button"
+    (click)="analyzeIngredients()"
+  >
+    Analyze
+  </button>
 </div>
-<app-analyze></app-analyze>

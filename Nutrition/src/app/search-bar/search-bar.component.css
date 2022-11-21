@@ -16,15 +16,17 @@ label {
 input {
   padding: .5rem;
   width: 100%;
-  max-width: 600px;
+  
   box-sizing: border-box;
   display: block;
   margin-left: 20px;
 }
+
+
+
 .button {
   border: none;
   color: white;
-  padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -33,5 +35,8 @@ input {
   cursor: pointer;
   background-color: #008CBA;
   margin-left: 530px;
+  padding:0px;
+  left:27px
+
 }
 

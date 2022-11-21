@@ -1,6 +1,5 @@
 import { IngredientsService } from './ingredients.service';
 import { Component } from '@angular/core';
-  
 
 @Component({
   selector: 'app-root',
@@ -10,7 +9,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   i: number = 0;
   listItems: string[] = [];
-
 
   constructor(private ingredientsService: IngredientsService) {}
 
@@ -23,5 +21,10 @@ export class AppComponent {
   addText(value: string) {
     this.ingredientsService.onSearchSaveText(value);
     this.listItems = this.ingredientsService.getList();
+  }
+  analyzeIngredients() {
+    this.ingredientsService.getIngredientList();
+    
+
   }
 }

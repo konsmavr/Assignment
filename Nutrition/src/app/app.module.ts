@@ -10,18 +10,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
-import { AddButtonComponent } from './add-button/add-button.component';
-import { AnalyzeComponent } from './analyze/analyze.component'; 
+
 import { HttpClientModule } from '@angular/common/http';
 import { InputFieldComponent } from './input-field/input-field.component';
-
+import {MatButtonModule} from '@angular/material/button'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchBarComponent,
-    AddButtonComponent,
-    AnalyzeComponent,
     InputFieldComponent
   ],
   imports: [
@@ -34,10 +31,7 @@ import { InputFieldComponent } from './input-field/input-field.component';
      MatIconModule,
      MatInputModule,
      HttpClientModule,
-     
-     
-     
-
+     MatButtonModule,
 
 
   ],
