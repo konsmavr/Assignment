@@ -36,7 +36,9 @@ input {
   background-color: #008CBA;
   margin-left: 530px;
   padding:0px;
-  left:27px
+  left:27px;
+  border-radius: 50px;
+  line-height:40px ;
 
 }
 

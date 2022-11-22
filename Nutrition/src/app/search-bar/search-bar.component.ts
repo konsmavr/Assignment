@@ -15,6 +15,7 @@ export class SearchBarComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  // the input which onClick enabled
   sendText() {
     if (this.searchTerm !== '') {
       this.newSearchTermEvent.emit(this.searchTerm);
