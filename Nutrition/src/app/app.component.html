@@ -1,12 +1,15 @@
-<div class="container">
-  <app-search-bar (newSearchTermEvent)="addText($event)"></app-search-bar>
+<app-search-bar (newSearchTermEvent)="addText($event)"></app-search-bar>
 
-  <div class="inputs">
-    <app-input-field
-      [item]="item"
-      *ngFor="let item of listItems"
-    ></app-input-field>
-  </div>
+<div class="inputs">
+  <app-input-field
+    [item]="item"
+    *ngFor="let item of listItems"
+    (delete)="removeEmptyStrings($event)"
+  ></app-input-field>
+  
+</div>
+
+<div class="btn-class">
   <button
     mat-raised-button
     color="accent"
@@ -16,3 +19,7 @@
     Analyze
   </button>
 </div>
+
+<!-- <div *ngIf="this.ingredientAnalysis!==undefined">
+  <p *ngFor="let inAna of ingredientAnalysis">{{inAna.totalNutrients.FAT.quantity | async}}</p>
+</div> -->

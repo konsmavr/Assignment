@@ -1,44 +1,39 @@
-.search-bar-component{
-  margin-left:20px; 
+.search-bar-component {
+  padding-top: 2rem;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items:flex-end;
+  justify-content:center;
 }
 
-
-label {
-  display: block;
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-top: 1rem;
-  margin-bottom: .5rem;
-  margin-left: 20px;
-  
-
-}
-input {
-  padding: .5rem;
-  width: 100%;
-  
-  box-sizing: border-box;
-  display: block;
-  margin-left: 20px;
+.searching {
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  padding: 3px;
 }
 
+input{
+  height: 30px;
+  width: 30rem;
+  border-radius: 20px;
+  border-width: 0.5px;
+}
 
-
+label{
+  font-size: 25px;
+  padding-bottom: 5px;
+}
 .button {
+  padding: 3px;
   border: none;
   color: white;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
   cursor: pointer;
-  background-color: #008CBA;
-  margin-left: 530px;
-  padding:0px;
-  left:27px;
+  background-color: #008cba;
   border-radius: 50px;
-  line-height:40px ;
-
+  line-height: 30px;
 }
-

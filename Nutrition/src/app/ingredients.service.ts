@@ -9,18 +9,20 @@ import { Ingredient } from './Ingredients.interface';
 })
 export class IngredientsService {
 
-
   constructor(private http: HttpClient) {}
 
-  
-  getIngredientList(value:string): Observable<Root> {
-    let myParams = new HttpParams()
-      .set('app_id', '405d17d3')
-      .set('app_key', 'c62d9da152ddc32578901c758fe57d78')
-      .set('nutrition-type', 'cooking')
-      .set('ingr', value);
-    return this.http.get<Root>('https://api.edamam.com/api/nutrition-data', {
-      params: myParams,
+  getIngredientList(values: string[]): Observable<Root> {
+    values.forEach((element) => {
+      let myParams = new HttpParams()
+        .set('app_id', '405d17d3')
+        .set('app_key', 'c62d9da152ddc32578901c758fe57d78')
+        .set('nutrition-type', 'cooking')
+        .set('ingr', element);
+      this.http.get<Root>('https://api.edamam.com/api/nutrition-data', {
+        params: myParams,
+      }).pipe(
+
+      );
     });
   }
 }

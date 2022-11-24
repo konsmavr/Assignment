@@ -1,7 +1,7 @@
 import { Root } from './ingredient-analysis.interface';
 import { IngredientsService } from './ingredients.service';
 import { Component } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { map, Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +12,9 @@ export class AppComponent {
   i: number = 0;
   listItems: string[] = [];
   analyzedIngredient!: Observable<Root>;
-  ingredientAnalysis!: Root;
+  ingredientAnalysis: Root[] = [];
+  temp!: Root;
+  newTemp = new Subject<Root[]>();
 
   constructor(private ingredientsService: IngredientsService) {}
 
@@ -24,13 +26,20 @@ export class AppComponent {
   }
   //the analyze button and the function
   analyzeIngredients() {
-    console.log(this.listItems)
-    for (let i of this.listItems) {
-      this.analyzedIngredient = this.ingredientsService.getIngredientList(i);
-      this.analyzedIngredient.subscribe((value:Root) => this.ingredientAnalysis = value);
-      if (this.ingredientAnalysis !== undefined) {
-        console.log(this.ingredientAnalysis.ingredients);
-      }
+    // console.log(this.listItems);
+    this.ingredientsService
+      .getIngredientList(this.listItems)
+      .subscribe((value: Root[]) =>
+        value.forEach((root) => this.ingredientAnalysis.push(root))
+      );
+    if (this.temp !== undefined) {
+      console.log(this.temp);
+      this.ingredientAnalysis.push(this.temp);
     }
+  }
+  //remove the deleted values from the list
+  removeEmptyStrings(value: string) {
+    let indexOf = this.listItems.indexOf(value);
+    this.listItems.splice(indexOf);
   }
 }
