@@ -6,9 +6,12 @@
     *ngFor="let item of listItems"
     (delete)="removeEmptyStrings($event)"
   ></app-input-field>
-  
+  <div *ngIf="this.ingredientAnalysis!==undefined">
+  <p>{{myStream$ | async}}</p>
+</div>
 </div>
 
+<!-- the analyze button and the function -->
 <div class="btn-class">
   <button
     mat-raised-button

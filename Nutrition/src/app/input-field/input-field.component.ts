@@ -17,6 +17,7 @@ export class InputFieldComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  //when we want to delete an input field
   onDelete() {
      
     this.delete.emit(this.item)

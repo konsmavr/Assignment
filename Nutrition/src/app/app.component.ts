@@ -12,7 +12,8 @@ export class AppComponent {
   i: number = 0;
   listItems: string[] = [];
   analyzedIngredient!: Observable<Root>;
-  ingredientAnalysis: Root[] = [];
+  ingredientAnalysis!: Root;
+  myStream$ = this.ingredientsService.getIngredientList();
   temp!: Root;
   newTemp = new Subject<Root[]>();
 
@@ -26,20 +27,34 @@ export class AppComponent {
   }
   //the analyze button and the function
   analyzeIngredients() {
-    // console.log(this.listItems);
-    this.ingredientsService
+    console.log(this.listItems);
+    this.myStream$ = this.ingredientsService
       .getIngredientList(this.listItems)
-      .subscribe((value: Root[]) =>
-        value.forEach((root) => this.ingredientAnalysis.push(root))
-      );
-    if (this.temp !== undefined) {
-      console.log(this.temp);
-      this.ingredientAnalysis.push(this.temp);
-    }
-  }
+      .subscribe();
+    console.log(this.myStream$)  }
   //remove the deleted values from the list
+  //
   removeEmptyStrings(value: string) {
-    let indexOf = this.listItems.indexOf(value);
-    this.listItems.splice(indexOf);
+    let tempArray = this.listItems.filter((item) => item !== value);
+    this.listItems = tempArray;
+  }
+
+  private rem(element: string, index: number, array: string[]) {
+    return;
+  }
+
+  async waitForLowResToLoad() {
+    var start_time = new Date().getTime();
+    while (true) {
+      if (this.ingredientAnalysis !== undefined) {
+        console.log(this.ingredientAnalysis);
+        break; // or return
+      }
+      if (new Date().getTime() > start_time + 10000) {
+        console.log('time out');
+        break; // or throw
+      }
+      await new Promise((resolve) => setTimeout(resolve, 0));
+    }
   }
 }
