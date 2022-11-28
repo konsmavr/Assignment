@@ -1,14 +1,11 @@
-<app-search-bar (newSearchTermEvent)="addText($event)"></app-search-bar>
+<app-search-bar (newSearchTermEvent)="addItem($event)"></app-search-bar>
 
 <div class="inputs">
   <app-input-field
     [item]="item"
     *ngFor="let item of listItems"
-    (delete)="removeEmptyStrings($event)"
+    (delete)="removeItem($event)"
   ></app-input-field>
-  <div *ngIf="this.ingredientAnalysis!==undefined">
-  <p>{{myStream$ | async}}</p>
-</div>
 </div>
 
 <!-- the analyze button and the function -->
@@ -21,8 +18,33 @@
   >
     Analyze
   </button>
+  <!-- <button class="remoe" (click)="deleteIngredient()">reset</button> -->
+  <div class="result">
+    <div *ngFor="let inAn of ingredientAnalysis">
+      <h3>{{ this.inAn.ingredients[0].parsed[0].food }}</h3>
+      <ul>
+        <li>
+          <h4>
+            {{ this.inAn.totalNutrients.FAT.label }} :
+            {{ this.inAn.totalNutrients.FAT.quantity }}
+            {{ this.inAn.totalNutrients.FAT.unit }}
+          </h4>
+          <ul>
+            <li>
+              {{ this.inAn.totalNutrients.FASAT.label }} :
+              {{ this.inAn.totalNutrients.FASAT.quantity }}
+              {{ this.inAn.totalNutrients.FASAT.unit }}
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h4>
+            {{ this.inAn.totalNutrients.NA.label }} :
+            {{ this.inAn.totalNutrients.NA.quantity }}
+            {{ this.inAn.totalNutrients.NA.unit }}
+          </h4>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
-
-<!-- <div *ngIf="this.ingredientAnalysis!==undefined">
-  <p *ngFor="let inAna of ingredientAnalysis">{{inAna.totalNutrients.FAT.quantity | async}}</p>
-</div> -->

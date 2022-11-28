@@ -1,4 +1,5 @@
 export interface Root {
+    push(temp: Root): unknown
     uri: string
     calories: number
     totalWeight: number

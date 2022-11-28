@@ -17,6 +17,7 @@ export class InputFieldComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   //when we want to delete an input field
   onDelete() {
      
@@ -24,14 +25,5 @@ export class InputFieldComponent implements OnInit {
     this.item = ""
 
   }
-  onEdit() {
-    this.rd = false
-    console.log(this.rd)
-  }
-  onConfirm() { 
-    this.rd = true
-    ///this.edit.emit(this.item)
-  }
-
 
 }
