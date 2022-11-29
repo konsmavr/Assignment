@@ -14,11 +14,9 @@
     mat-raised-button
     color="accent"
     class="button"
-    (click)="analyzeIngredients()"
-  >
+    (click)="analyzeIngredients()">
     Analyze
   </button>
-  <!-- <button class="remoe" (click)="deleteIngredient()">reset</button> -->
   <div class="result">
     <div *ngFor="let inAn of ingredientAnalysis">
       <h3>{{ this.inAn.ingredients[0].parsed[0].food }}</h3>

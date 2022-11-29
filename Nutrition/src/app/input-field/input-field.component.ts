@@ -8,7 +8,6 @@ import { Component, OnInit,Input,Output, EventEmitter } from '@angular/core';
 export class InputFieldComponent implements OnInit {
   @Input() item!:string; 
   @Output() delete = new EventEmitter<string>();
-  @Output() edit = new EventEmitter<string>();
   rd:boolean = true
   temp:string = '';
 
