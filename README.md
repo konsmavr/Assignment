@@ -8,6 +8,7 @@
 # Second Step
 - git clone https://github.com/konsmavr/Assignment.git
 - Install node_modules in your project --> npm install
+- cd into the "Nutrition"
 
 
 # Development Server 
