@@ -1,0 +1,13 @@
+input {
+    padding: 2px;
+    border-radius: 7px;
+
+}
+.close-btn {
+    margin-left: 1rem;
+    margin-right: 0.5rem;
+    color: red;
+    border-radius: 8px;
+    font-size: 14px;
+}
+ 

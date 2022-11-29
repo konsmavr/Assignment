@@ -1,0 +1,8 @@
+<!-- the search bar and the add button -->
+<div class="search-bar-component">
+  <div class="searching">
+    <label for="search-box">Search</label>
+    <input #searchBox id="search-box" [(ngModel)]="searchTerm" />
+  </div>
+  <button mat-raised-button class="button" (click)="sendText()">Add</button>
+</div>

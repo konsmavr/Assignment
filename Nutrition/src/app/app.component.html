@@ -1,0 +1,48 @@
+<app-search-bar (newSearchTermEvent)="addItem($event)"></app-search-bar>
+
+<div class="inputs">
+  <app-input-field
+    [item]="item"
+    *ngFor="let item of listItems"
+    (delete)="removeItem($event)"
+  ></app-input-field>
+</div>
+
+<!-- the analyze button and the function -->
+<div class="btn-class">
+  <button
+    mat-raised-button
+    color="accent"
+    class="button"
+    (click)="analyzeIngredients()">
+    Analyze
+  </button>
+  <div class="result">
+    <div *ngFor="let inAn of ingredientAnalysis">
+      <h3>{{ this.inAn.ingredients[0].parsed[0].food }}</h3>
+      <ul>
+        <li>
+          <h4>
+            {{ this.inAn.totalNutrients.FAT.label }} :
+            {{ this.inAn.totalNutrients.FAT.quantity }}
+            {{ this.inAn.totalNutrients.FAT.unit }}
+          </h4>
+          <ul>
+            <li>
+              {{ this.inAn.totalNutrients.FASAT.label }} :
+              {{ this.inAn.totalNutrients.FASAT.quantity }}
+              {{ this.inAn.totalNutrients.FASAT.unit }}
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h4>
+            {{ this.inAn.totalNutrients.NA.label }} :
+            {{ this.inAn.totalNutrients.NA.quantity }}
+            {{ this.inAn.totalNutrients.NA.unit }}
+          </h4>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
