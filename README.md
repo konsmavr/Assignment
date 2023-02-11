@@ -6,7 +6,7 @@
  
 
 # Second Step
-- git clone https://github.com/konsmavr/Assignment.git
+- git clone https://github.com/konsmavr/Nutrition-app.git
 - Install node_modules in your project --> npm install
 - cd into the "Nutrition"
 
